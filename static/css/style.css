@@ -65,37 +65,35 @@ body{
 
 .grid {
     display: grid;
+    grid-template-columns: 60% auto;
+    grid-template-rows: auto auto 80px;
 }
 
 .layout_01 {
     grid-template-areas: 
     "list preview"
-    "list options";
+    "list options"
+    "menu menu";
 }
 .layout_02 {
     grid-template-areas: 
     "preview options"
-    "list list";
+    "list list"
+    "menu menu";
 }
 .layout_03 {
     grid-template-areas: 
     "preview preview"
-    "list options";
-}
+    "list options"
+    "menu menu";
+    }
 
 .panel {
-    display: grid;
-    grid-template-columns: auto auto;
     border: 1px solid;
     border-color: var(--pico-primary-border);
     border-radius: 10px;
     padding: 10px;
     background-color: #05101a;
-}
-
-.panel > div {
-    display: grid;
-    grid-template-columns: auto;
 }
 
 .panel:hover{
@@ -118,6 +116,14 @@ body{
 
 .options {
     grid-area: options;
+}
+.menu {
+    grid-area: menu;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.menu > button {
+    margin: 0 5px;
 }
 
 #blendfiles {padding: 0;}
