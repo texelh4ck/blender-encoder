@@ -3,7 +3,7 @@ section {
 }
 
 body{
-    height: 95vh;
+    height: 100vh;
 }
 
 @keyframes init {
@@ -50,16 +50,17 @@ body{
     justify-content: center;
     visibility: hidden;
     background-color: #05101a;
-    animation: welcome 3s 1;
+    /* animation: welcome 3s 1; */
 }
+#welcome > h1 { margin: 0; }
 
-.container {
+#welcome > img { margin-right: 15px;}
+
+#container {
     width: 100%;
     height: 100%;
-    margin-top: 15px;
-    animation-name: init;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
+    padding: 10px;
+    /* animation: init 3s 1; */
 }
 
 .grid {
@@ -83,11 +84,21 @@ body{
 }
 
 .panel {
+    display: grid;
+    grid-template-columns: auto auto;
     border: 1px solid;
     border-color: var(--pico-primary-border);
     border-radius: 10px;
     padding: 10px;
     background-color: #05101a;
+}
+
+.panel > div {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.panel:hover{
     box-shadow: var(--pico-primary-background) 0px 0px 10px;
 }
 
@@ -95,6 +106,10 @@ body{
     grid-area: list;
     overflow-y: auto;
     scrollbar-width: thin;
+}
+
+#dragzone {
+    width: 200%;
 }
 
 .preview {

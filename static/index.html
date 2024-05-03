@@ -3,30 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Blender Encoder</title>
-    <link rel="stylesheet" href="css/pico.lime.css">
+    <link rel="stylesheet" href="css/theme/pico.pumpkin.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="../images/icon-color.png" type="image/x-icon">
     <!-- <meta http-equiv="refresh" content="1"> -->
 </head>
 <body>
     <div id="welcome">
+        <img src="../images/icon-white.png" width="100">
         <h1>Blender Encoder</h1>
     </div>
-    <div class="container grid layout_01">
-        <section class="list panel" dropzone="link" >
-            <ul id="blendfiles">
-            </ul>
+    <div id="container" class="grid layout_01">
+        <section id="renderlist" class="list panel">
+                <ul id="blendfiles">
+                </ul>
         </section>
         <section class="preview panel"></section>
         <section class="options panel">
-            <button onclick="bt_import()">Import</button>
-            <button onclick="render()">Render</button>
+            <!-- <div>
+                <p>Frame Start</p> <input type="text"/>
+                <p>Frame End</p> <input type="text"/>
+            </div> -->
+            <!-- <div> -->
+                <button onclick="bt_import()">Import</button>
+                <button onclick="render()">Render</button>
+            <!-- </div> -->
         </section>
+        
     </div>
 </body>
 <script src="js/list.js">   
-    reload();
 </script>
 <script>
-    
+    const {welcome} = require("../src/config")
+    if (welcome) {
+        document.getElementById("welcome").style.animation = "welcome 3s 1";
+        document.getElementById("container").style.animation = "init 3s 1";
+    }
 </script>
 </html>

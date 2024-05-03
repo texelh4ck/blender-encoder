@@ -1,22 +1,24 @@
 const { dialog } = require("electron");
-const {BlendList, add} = require("../src/blendfile")
+const { add, get, data } = require("../src/blendfile");
 
-// let BlendList = require("../temp/blendfile.json");
 let selected = null;
 
+
 const reload = () => {
+    const BlendList =  get();
     document.getElementById("blendfiles").innerHTML = "";
     BlendList.forEach((element) => {
+        const file = data(element)
     document.getElementById("blendfiles").innerHTML += 
-    `<li title="${element[2]}" ><input title="${element[2]}" type="checkbox" ${ (element[1] ? "checked" : "") } />${ element[0] }</li>`;
+    `<li title="${file.name}" ><input title="${file.name}" type="checkbox" ${ (file.checked ? "checked" : "") } />${ file.name }</li>`;
     });
 }
 
 let count = 0
 const bt_import = () => {
-    BlendList.push([`filename${count}.blend`, true, count])
-    count += 1
-    reload()
+    // BlendList.push([`filename${count}.blend`, true, count])
+    // count += 1
+    // reload()
     // dialog.showOpenDialog({ properties: ["openFile", "multiSelections"] })
     //   .then((result) => {
     //     // if (!result.canceled){
@@ -47,3 +49,22 @@ document.getElementById("blendfiles").addEventListener("dblclick", function(e){
         item.checked = !item.checked
     } 
 })
+
+// Drag and Drop
+document.getElementById("renderlist").addEventListener("drop", (e) => {
+e.preventDefault();
+e.stopPropagation();
+
+for (const f of e.dataTransfer.files) {
+    document.getElementById("renderlist").style.background = "#fff";
+    add(f.path);
+    document.getElementById("renderlist").style.background = "#05101a";
+}
+});
+
+document.getElementById("renderlist").addEventListener("dragover", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+});
+
+reload();

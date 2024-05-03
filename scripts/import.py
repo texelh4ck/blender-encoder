@@ -6,6 +6,7 @@ info = {
     "hash": "",
     "name": bpy.data.filepath.split("\\")[-1],
     "filepath": bpy.data.filepath,
+    "checked": True,
     "start": bpy.data.scenes[0].frame_start,
     "end": bpy.data.scenes[0].frame_end,
     "engine": bpy.data.scenes[0].render.engine,
@@ -27,6 +28,6 @@ with open(f"temp\\blendfile.json", "r") as blendlist:
 
 if l.count(info["hash"] + ".json") == 0:
     with open(f"temp\\blendfile.json", "w") as blendlist:
-        l.append([info["hash"] + ".json", False])
+        l.append(info["hash"] + ".json")
         json.dump(l, blendlist, indent=4)
 
