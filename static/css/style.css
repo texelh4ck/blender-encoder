@@ -6,56 +6,6 @@ body{
     height: 100vh;
 }
 
-@keyframes init {
-    from {
-        opacity: 50%;
-        filter: blur(20px);
-    }
-    75% {
-        opacity: 50%;
-        filter: blur(20px);
-    }
-    to {
-        opacity: 100%;
-        filter: blur(0px);
-    }
-}
-
-@keyframes welcome {
-    from {
-        visibility: visible;
-        opacity: 0%;
-    }
-    50% {
-        opacity: 100%;
-        visibility: visible;
-    }
-    75% {
-        opacity: 100%;
-        visibility: visible;
-    }
-    to {
-        opacity: 0%;
-        visibility: hidden;
-    }
-}
-
-#welcome {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden;
-    background-color: #05101a;
-    /* animation: welcome 3s 1; */
-}
-#welcome > h1 { margin: 0; }
-
-#welcome > img { margin-right: 15px;}
-
 #container {
     width: 100%;
     height: 100%;
@@ -143,4 +93,103 @@ body{
     width: 22px;
     height: 22px;
     margin-bottom: 3px;
+}
+
+/*======================================
+            Full Screens
+======================================*/
+
+.full {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Welcome Animation  */
+#welcome {
+    visibility: hidden;
+    background-color: #05101a;
+    /* animation: welcome 3s 1; */
+}
+
+#welcome>h1 {
+    margin: 0;
+}
+
+#welcome>img {
+    margin-right: 15px;
+}
+
+@keyframes init {
+    from {
+        opacity: 50%;
+        filter: blur(20px);
+    }
+
+    75% {
+        opacity: 50%;
+        filter: blur(20px);
+    }
+
+    to {
+        opacity: 100%;
+        filter: blur(0px);
+    }
+}
+
+@keyframes welcome {
+    from {
+        visibility: visible;
+        opacity: 0%;
+    }
+
+    50% {
+        opacity: 100%;
+        visibility: visible;
+    }
+
+    75% {
+        opacity: 100%;
+        visibility: visible;
+    }
+
+    to {
+        opacity: 0%;
+        visibility: hidden;
+    }
+}
+
+/* Rendering Animation */
+#loader {
+    visibility: hidden;
+    background: #05101a;
+    display: flex;
+    flex-direction: column;
+}
+
+#loader > h3{
+    font-weight: bold;
+    font-family: monospace;
+    text-shadow:
+        0 0 0 rgb(255 0 0),
+        0 0 0 rgb(0 255 0),
+        0 0 0 rgb(0 0 255);
+    font-size: 30px;
+    animation: l32 1s infinite cubic-bezier(0.5, -2000, 0.5, 2000);
+
+}
+
+@keyframes l32 {
+
+    25%,
+    100% {
+        text-shadow:
+            0.03px -0.01px 0.01px rgb(255 0 0),
+            0.02px 0.02px 0 rgb(0 255 0),
+            -0.02px 0.02px 0 rgb(0 0 255);
+    }
 }

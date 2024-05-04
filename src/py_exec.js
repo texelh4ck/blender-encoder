@@ -10,14 +10,14 @@ const pyexec = (script = "", callout) => {
 };
 
 const blend_py = (file = "", script = "", callout) => {
-  exec(
-    `blender -b ${file} -P scripts/${script}.py`,
-    (error, stdout, stdin) => {
+    exec(
+      `blender -b ${file} -P scripts/${script}.py`,
+      (error, stdout, stdin) => {
         if (callout != null){
-            callout(stdout);
+          callout(stdout);
         }
-    }
-  );
+      }
+    );
 };
 
 module.exports = { pyexec, blend_py };

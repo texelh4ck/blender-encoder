@@ -9,11 +9,10 @@
  // Files
  const blendlist = './temp/blendfile.json'
 
-
  module.exports = {
     welcome,
     win_w,
     win_h,
     blendlist
- }
+}
 

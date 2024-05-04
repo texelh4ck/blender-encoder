@@ -9,10 +9,15 @@
     <!-- <meta http-equiv="refresh" content="1"> -->
 </head>
 <body>
-    <div id="welcome">
+    <div id="welcome" class="full">
         <img src="../images/icon-white.png" width="100">
         <h1>Blender Encoder</h1>
     </div>
+    <div id="loader" class="full">
+        <h3>Rendering</h3>
+        <h4 id="render-name"></h4>
+    </div>
+    
     <div id="container" class="grid layout_01">
         <section id="renderlist" class="list panel">
                 <ul id="blendfiles">
@@ -29,8 +34,8 @@
         </section>
     </div>
 </body>
-<script src="js/list.js">   
-</script>
+<script src="js/list.js"></script>
+<script src="js/menu.js"></script>
 <script>
     const {welcome} = require("../src/config")
     if (welcome) {

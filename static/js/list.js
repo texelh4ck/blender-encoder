@@ -38,7 +38,7 @@ document.getElementById("blendfiles").addEventListener("click", function(e){
         selected.classList = "selected"
     } else if (e.srcElement.tagName == "INPUT"){
         // switch al estado de el archivo de render
-        BlendList[e.srcElement.title][1] = !BlendList[e.srcElement.title][1];
+        console.log(e.srcElement.title);
     }
 })
 
