@@ -1,21 +1,22 @@
 const { dialog } = require("electron");
-const { add, get, data } = require("../src/blendfile");
+const { blend_add, blend_get, blend_data, blend_change } = require("../src/blendfile");
 
 let selected = null;
 
 
 const reload = () => {
-    const BlendList =  get();
+    const BlendList =  blend_get();
     document.getElementById("blendfiles").innerHTML = "";
     BlendList.forEach((element) => {
-        const file = data(element)
+        const file = blend_data(element)
     document.getElementById("blendfiles").innerHTML += 
-    `<li title="${file.name}" ><input title="${file.name}" type="checkbox" ${ (file.checked ? "checked" : "") } />${ file.name }</li>`;
+    `<li title="${element}" ><input title="${element}" type="checkbox" ${ (file.checked ? "checked" : "") } />${ file.name }</li>`;
     });
 }
 
 let count = 0
 const bt_import = () => {
+    alert("Comming Soon ...")
     // BlendList.push([`filename${count}.blend`, true, count])
     // count += 1
     // reload()
@@ -38,7 +39,8 @@ document.getElementById("blendfiles").addEventListener("click", function(e){
         selected.classList = "selected"
     } else if (e.srcElement.tagName == "INPUT"){
         // switch al estado de el archivo de render
-        console.log(e.srcElement.title);
+        const f = blend_data(e.srcElement.title);
+        blend_change(e.srcElement.title, "checked", !f.checked)
     }
 })
 
@@ -57,7 +59,7 @@ e.stopPropagation();
 
 for (const f of e.dataTransfer.files) {
     document.getElementById("renderlist").style.background = "#fff";
-    add(f.path);
+    blend_add(f.path);
     document.getElementById("renderlist").style.background = "#05101a";
 }
 });
