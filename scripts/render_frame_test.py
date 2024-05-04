@@ -9,6 +9,7 @@ import bpy, sys
 original = bpy.data.scenes["Scene"].render.filepath
 
 bpy.data.scenes["Scene"].render.filepath = "C:/tmp/bencoder/test"
+
 bpy.ops.render.render(write_still=True)
 
 bpy.data.scenes["Scene"].render.filepath = original
