@@ -1,16 +1,16 @@
 const reload = () => {
     const BlendList =  blend_get();
-    document.getElementById("blendfiles").innerHTML = "";
+    blendfiles.innerHTML = "";
     BlendList.forEach((element) => {
         const file = blend_data(element)
-    document.getElementById("blendfiles").innerHTML += 
+    blendfiles.innerHTML += 
     `<li title="${element}" ><input title="${element}" type="checkbox" ${ (file.checked ? "checked" : "") } />${ file.name }</li>`;
     });
 }
 
 // EVENTS
 // Click
-document.getElementById("blendfiles").addEventListener("click", function(e){
+blendfiles.addEventListener("click", function(e){
     if (e.srcElement.tagName == "LI") { 
         // Selecciona un archivo
         if (selected != null) {selected.classList = ""}
@@ -31,7 +31,7 @@ document.getElementById("blendfiles").addEventListener("click", function(e){
 })
 
 // Double Click
-document.getElementById("blendfiles").addEventListener("dblclick", function(e){
+blendfiles.addEventListener("dblclick", function(e){
     if (e.srcElement.tagName != "LI") { 
         alert("Comming Soon...")
     } 
@@ -42,13 +42,13 @@ document.getElementById("renderlist").addEventListener("drop", async (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    document.getElementById("spinner").style.visibility = "visible";
+   spinner.style.visibility = "visible";
     for (const f of e.dataTransfer.files) {
-        document.getElementById("spinner-text").innerHTML = f.name;
+        spinner_text.innerHTML = f.name;
         await blend_add(f.path);
     }
     reload();
-    document.getElementById("spinner").style.visibility = "hidden";
+   spinner.style.visibility = "hidden";
 });
 
 document.getElementById("renderlist").addEventListener("dragover", (e) => {

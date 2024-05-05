@@ -1,17 +1,17 @@
 const bt_render = async() => {
     const BlendList = blend_get();
 
-    document.getElementById("render").style.visibility = "visible";
+    rendering.style.visibility = "visible";
     
     for (let i = 0; i < BlendList.length; i++) {
         const file = blend_data(BlendList[i]);
         if (file.checked){
-            document.getElementById("render-name").innerHTML = file.name;
+            render_name.innerHTML = file.name;
             await render_anim(file.filepath)
         }
     }
     
-    document.getElementById("render").style.visibility = "hidden";
+    rendering.style.visibility = "hidden";
 }
 
 const bt_preview = async() => {
@@ -20,12 +20,13 @@ const bt_preview = async() => {
         return
     }
     
-    document.getElementById("render").style.visibility = "visible";
+    rendering.style.visibility = "visible";
+    render_name.innerHTML = "Preview: " + blend_data(selected.title).name
 
     const file = blend_data(selected.title);
     await render_frame(file.filepath)
     
-    document.getElementById("render").style.visibility = "hidden";
+    rendering.style.visibility = "hidden";
     set_preview(selected.title)
 }
 
