@@ -9,3 +9,17 @@ if (welcome) {
     document.getElementById("welcome").style.animation = "welcome 3s 1";
     document.getElementById("container").style.animation = "init 3s 1";
 }
+
+// EVENTS
+
+// Key Pressed
+window.addEventListener("keypress", e => {
+    // Ctrl + Space  ->  Full Screen Preview
+    if (e.code == "Space" && e.ctrlKey){
+        if (document.getElementById("preview").classList.contains("fullscreen")) {
+            document.getElementById("preview").classList.remove("fullscreen")
+        } else {
+            document.getElementById("preview").classList.add("fullscreen");
+        }
+    }
+})
