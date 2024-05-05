@@ -13,3 +13,11 @@ const switch_fullscreen = () => {
         preview.classList.add("fullscreen");
     }
 }
+
+const { exec } = require("child_process");
+
+preview.addEventListener("dblclick", function (e) {
+    if (selected != null) {
+        exec("C:/tmp/bencoder/" + blend_data(selected.title).name + "_preview.png");
+    }
+});
