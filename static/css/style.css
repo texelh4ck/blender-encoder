@@ -73,6 +73,7 @@ body{
     display: flex;
     flex-direction: row-reverse;
 }
+
 #menu > button {
     margin: 0 5px;
 }
