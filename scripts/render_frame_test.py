@@ -8,7 +8,7 @@ import bpy, sys
 
 original = bpy.data.scenes["Scene"].render.filepath
 
-bpy.data.scenes["Scene"].render.filepath = "C:/tmp/bencoder/test"
+bpy.data.scenes["Scene"].render.filepath = "C:/tmp/bencoder/" + bpy.data.filepath.split('\\')[-1] + "_preview"
 
 bpy.ops.render.render(write_still=True)
 

@@ -3,7 +3,7 @@ const { blend_py } = require("./py_exec");
 const fs = require("fs");
 
 const blend_add = async(name) => {
-    blend_py(name, "import")
+    await blend_py(name, "import")
 }
 
 const blend_get = () => {
@@ -23,9 +23,17 @@ const blend_change = (file, key, value) => {
     fs.writeFileSync("./temp/" + file, JSON.stringify(data));
 }
 
+const blend_del = (file) => {
+    let data = fs.readFileSync(blendlist, { encoding: "utf-8" });
+    data = JSON.parse(data);
+    let newData = data.filter(blend => blend != file)
+    fs.writeFileSync(blendlist, JSON.stringify(newData))
+}
+
 module.exports = {
     blend_add,
     blend_get,
     blend_data,
-    blend_change
+    blend_change,
+    blend_del
 }

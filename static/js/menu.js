@@ -1,9 +1,7 @@
-const {render_frame, render_anim} = require("../src/renders")
-
 const bt_render = async() => {
     const BlendList = blend_get();
 
-    document.getElementById("loader").style.visibility = "visible";
+    document.getElementById("render").style.visibility = "visible";
     
     for (let i = 0; i < BlendList.length; i++) {
         const file = blend_data(BlendList[i]);
@@ -13,7 +11,7 @@ const bt_render = async() => {
         }
     }
     
-    document.getElementById("loader").style.visibility = "hidden";
+    document.getElementById("render").style.visibility = "hidden";
 }
 
 const bt_preview = async() => {
@@ -22,16 +20,24 @@ const bt_preview = async() => {
         return
     }
     
-    const BlendList = blend_get();
-    
-    document.getElementById("loader").style.visibility = "visible";
+    document.getElementById("render").style.visibility = "visible";
 
     const file = blend_data(selected.title);
     await render_frame(file.filepath)
     
-    document.getElementById("preview").style.backgroundImage = "url('C:/tmp/bencoder/test.png')";
-    document.getElementById("preview").style.backgroundSize = "contain";
-    document.getElementById("preview").style.backgroundRepeat = "no-repeat";
-    document.getElementById("preview").style.backgroundPosition = "center";
-    document.getElementById("loader").style.visibility = "hidden";
+    document.getElementById("render").style.visibility = "hidden";
+    set_preview(selected.title)
 }
+
+const bt_import = () => {
+  alert("Comming Soon ...");
+  // BlendList.push([`filename${count}.blend`, true, count])
+  // count += 1
+  // reload()
+  // dialog.showOpenDialog({ properties: ["openFile", "multiSelections"] })
+  //   .then((result) => {
+  //     // if (!result.canceled){
+  //         console.log(result)
+  //     // }
+  //   });
+};

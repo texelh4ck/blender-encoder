@@ -107,12 +107,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #05101ab6;
 }
 
 /* Welcome Animation  */
 #welcome {
     visibility: hidden;
-    background-color: #05101a;
     /* animation: welcome 3s 1; */
 }
 
@@ -164,14 +164,13 @@ body{
 }
 
 /* Rendering Animation */
-#loader {
+#render {
     visibility: hidden;
-    background: #05101a;
     display: flex;
     flex-direction: column;
 }
 
-#loader > h3{
+#render > h3{
     font-weight: bold;
     font-family: monospace;
     text-shadow:
@@ -191,5 +190,44 @@ body{
             0.03px -0.01px 0.01px rgb(255 0 0),
             0.02px 0.02px 0 rgb(0 255 0),
             -0.02px 0.02px 0 rgb(0 0 255);
+    }
+}
+
+/* Loader Animation */
+#spinner {visibility:hidden;}
+#spinner > h4 {margin: 0 10px;}
+#loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    border: 4px solid #0000;
+    border-radius: 50%;
+    border-color: #e87d0d #0000;
+    animation: l16 1s infinite linear;
+}
+
+#loader::before,
+#loader::after {
+    content: "";
+    grid-area: 1/1;
+    margin: 2px;
+    border: inherit;
+    border-radius: 50%;
+}
+
+#loader::before {
+    border-color: #265787 #00000000;
+    animation: inherit;
+    animation-duration: .5s;
+    animation-direction: reverse;
+}
+
+#loader::after {
+    margin: 8px;
+}
+
+@keyframes l16 {
+    100% {
+        transform: rotate(1turn)
     }
 }

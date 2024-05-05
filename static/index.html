@@ -13,7 +13,11 @@
         <img src="../images/icon-white.png" width="100">
         <h1>Blender Encoder</h1>
     </div>
-    <div id="loader" class="full">
+    <div id="spinner" class="full">
+        <div id="loader" class=""></div>
+        <h4 id="spinner-text"></h4>
+    </div>
+    <div id="render" class="full">
         <h3>Rendering</h3>
         <h4 id="render-name"></h4>
     </div>
@@ -35,13 +39,8 @@
         </section>
     </div>
 </body>
-<script src="js/list.js"></script>
+<script src="js/global.js"></script>
+<script src="js/preview.js"></script>
 <script src="js/menu.js"></script>
-<script>
-    const {welcome} = require("../src/config")
-    if (welcome) {
-        document.getElementById("welcome").style.animation = "welcome 3s 1";
-        document.getElementById("container").style.animation = "init 3s 1";
-    }
-</script>
+<script src="js/list.js"></script>
 </html>
