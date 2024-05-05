@@ -58,8 +58,9 @@ document.getElementById("renderlist").addEventListener("dragover", (e) => {
 
 // Key
 window.addEventListener("keydown", function(e){
+    // Delete file of the list
     if (e.code == 'Delete'){
-        if (selected != null && confirm("Delete " + selected.title + "?")){
+        if (selected != null && confirm("Delete " + blend_data(selected.title).name + "?")){
             blend_del(selected.title)
             reload()
         }
