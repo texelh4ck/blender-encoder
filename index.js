@@ -1,5 +1,4 @@
 const {app, BrowserWindow, dialog} = require("electron");
-const {BlendList} = require("./src/blendfile")
 const {win_w, win_h} = require("./src/config")
 
 const main = () => {
@@ -8,8 +7,9 @@ const main = () => {
         height: win_h,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
-        }
+            contextIsolation: false,
+        },
+        icon: "images/icon-color.png",
     })
     win.loadFile('static/index.html')
 }
