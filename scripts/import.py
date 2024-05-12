@@ -10,7 +10,11 @@ info = {
     "start": bpy.data.scenes[0].frame_start,
     "end": bpy.data.scenes[0].frame_end,
     "engine": bpy.data.scenes[0].render.engine,
-    "quality": bpy.data.scenes["Scene"].render.resolution_percentage
+    "out": {
+        "wxh": [bpy.data.scenes[0].render.resolution_x, bpy.data.scenes[0].render.resolution_y],
+        "quality": bpy.data.scenes[0].render.resolution_percentage,
+        "fps": bpy.data.scenes[0].render.fps
+    }
 }
 
 # Calcula el Hash del archivo

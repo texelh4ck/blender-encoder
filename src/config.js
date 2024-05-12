@@ -2,7 +2,7 @@
  * Opciones generales para el software
  */
 
- const welcome = true // Animación de inicio
+ const welcome = false // Animación de inicio
  const win_w =  1200
  const win_h =  650
 

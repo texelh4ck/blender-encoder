@@ -16,7 +16,7 @@ blendfiles.addEventListener("click", function(e){
         if (selected != null) {selected.classList = ""}
         selected = e.srcElement
         selected.classList = "selected"
-
+        setInfo(selected.title);
         try {
             set_preview(selected.title)
         } catch (error) {

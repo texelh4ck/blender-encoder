@@ -16,25 +16,25 @@ body{
 .grid {
     display: grid;
     grid-template-columns: 60% auto;
-    grid-template-rows: auto auto 80px;
+    grid-template-rows: 40% auto 80px;
 }
 
 .layout_01 {
     grid-template-areas: 
     "list preview"
-    "list options"
+    "list info"
     "menu menu";
 }
 .layout_02 {
     grid-template-areas: 
-    "preview options"
+    "preview info"
     "list list"
     "menu menu";
 }
 .layout_03 {
     grid-template-areas: 
     "preview preview"
-    "list options"
+    "list info"
     "menu menu";
     }
 
@@ -64,8 +64,16 @@ body{
     grid-area: preview;
 }
 
-#options {
-    grid-area: options;
+#info {
+    grid-area: info;
+    /* display: grid; */
+}
+
+.info_blend {display: flex;}
+.info_blend > p {
+    margin: 2px 5px;
+    font-size: 16px;
+    color: #999;
 }
 
 #menu {

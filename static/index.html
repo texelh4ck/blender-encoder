@@ -28,9 +28,23 @@
                 </ul>
         </section>
         <section id="preview" class="panel"></section>
-        <section id="options" class="panel">
-                <!-- <p>Frame Start</p> <input type="text"/>
-                <p>Frame End</p> <input type="text"/> -->
+        <section id="info" class="panel">
+            <center><h6>RENDER INFO</h6></center>
+            <div class="info_blend">
+                <p >Engine: </p><p id="info_engine"></p>
+            </div>
+            <div class="info_blend">
+                <p >Frame Range: </p><p id="info_frame_range"></p>
+                <p>Frame Start: </p><p id="info_frame_start"></p>
+                <p>Frame End: </p><p id="info_frame_end"></p>
+            </div>
+            <div class="info_blend">
+                <p >Width: </p><p id="info_w"></p>
+                <p>Height: </p><p id="info_h"></p>
+            </div>
+            <div class="info_blend">
+                <p>FPS: </p><p id="info_rate"></p>
+            </div>
         </section>
         <section id="menu" class="panel">
             <button onclick="bt_render()">Render</button>
@@ -44,4 +58,5 @@
 <script src="js/preview.js"></script>
 <script src="js/menu.js"></script>
 <script src="js/list.js"></script>
+<script src="js/info.js"></script>
 </html>
