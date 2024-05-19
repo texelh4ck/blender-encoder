@@ -8,4 +8,4 @@
 - Generate preview
 
 # Screens
-![](images/screenshots/screen_v1.0.0.png)
+![](images/screenshots/screen_v1.1.0.png)
